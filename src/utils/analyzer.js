@@ -242,6 +242,41 @@ export function analyze({ jdText, resumeText }) {
   // Top suggestions
   const suggestedTop5 = missingKeywords.slice(0, 5)
   
+  // Extract additional insights
+  const jdExperience = extractExperience(jdText)
+  const resumeExperience = extractExperience(resumeText)
+  const jdEducation = extractEducation(jdText)
+  const resumeEducation = extractEducation(resumeText)
+  const certifications = extractCertifications(resumeText)
+  const atsScore = calculateATSScore(jdText, resumeText)
+  
+  // Experience match
+  let experienceMatch = 'Unknown'
+  if (jdExperience && resumeExperience) {
+    if (resumeExperience >= jdExperience) {
+      experienceMatch = 'Meets Requirements'
+    } else if (resumeExperience >= jdExperience * 0.7) {
+      experienceMatch = 'Close Match'
+    } else {
+      experienceMatch = 'Below Requirements'
+    }
+  }
+  
+  // Education match
+  const eduHierarchy = { phd: 5, masters: 4, bachelors: 3, associates: 2, diploma: 1 }
+  let educationMatch = 'Not Specified'
+  if (jdEducation && resumeEducation) {
+    const jdLevel = eduHierarchy[jdEducation] || 0
+    const resumeLevel = eduHierarchy[resumeEducation] || 0
+    if (resumeLevel >= jdLevel) {
+      educationMatch = 'Meets Requirements'
+    } else {
+      educationMatch = 'Below Requirements'
+    }
+  } else if (resumeEducation) {
+    educationMatch = resumeEducation.charAt(0).toUpperCase() + resumeEducation.slice(1)
+  }
+  
   return {
     score: Math.min(finalScore, 100),
     label,
@@ -250,6 +285,18 @@ export function analyze({ jdText, resumeText }) {
     matchedKeywords,
     missingKeywords,
     suggestedTop5,
+    atsScore,
+    experience: {
+      required: jdExperience,
+      candidate: resumeExperience,
+      match: experienceMatch
+    },
+    education: {
+      required: jdEducation,
+      candidate: resumeEducation,
+      match: educationMatch
+    },
+    certifications,
     details: {
       skillScore: Math.round(skillScore),
       keywordScore: Math.round(keywordScore),
@@ -258,6 +305,123 @@ export function analyze({ jdText, resumeText }) {
       resumeLength: resumeTokens.length
     }
   }
+}
+
+/**
+ * Extract years of experience from text
+ */
+function extractExperience(text) {
+  const patterns = [
+    /(\d+)\+?\s*(?:years?|yrs?)(?:\s+of)?\s+(?:professional\s+)?experience/gi,
+    /experience[:\s]*(\d+)\+?\s*(?:years?|yrs?)/gi,
+    /(\d+)\+?\s*(?:years?|yrs?)\s+(?:in|with|of)/gi
+  ]
+  
+  const matches = []
+  patterns.forEach(pattern => {
+    let match
+    while ((match = pattern.exec(text)) !== null) {
+      matches.push(parseInt(match[1]))
+    }
+  })
+  
+  return matches.length > 0 ? Math.max(...matches) : null
+}
+
+/**
+ * Extract education level from text
+ */
+function extractEducation(text) {
+  const normalized = normalize(text)
+  const educationLevels = {
+    phd: ['ph.d', 'phd', 'doctorate', 'doctoral'],
+    masters: ['master', 'msc', 'm.sc', 'mba', 'm.b.a', 'ms', 'm.s'],
+    bachelors: ['bachelor', 'bsc', 'b.sc', 'ba', 'b.a', 'bs', 'b.s', 'beng', 'b.eng'],
+    associates: ['associate', 'aa', 'a.a', 'as', 'a.s'],
+    diploma: ['diploma', 'certificate']
+  }
+  
+  for (const [level, keywords] of Object.entries(educationLevels)) {
+    if (keywords.some(kw => normalized.includes(kw))) {
+      return level
+    }
+  }
+  
+  return null
+}
+
+/**
+ * Extract certifications from text
+ */
+function extractCertifications(text) {
+  const certPatterns = [
+    /(?:aws|amazon|azure|microsoft|google|oracle|cisco|comptia)\s+certified/gi,
+    /certification[s]?[:\s]+([^\n]+)/gi,
+    /cert(?:ified)?[:\s]+([^\n]+)/gi
+  ]
+  
+  const certs = new Set()
+  certPatterns.forEach(pattern => {
+    let match
+    while ((match = pattern.exec(text)) !== null) {
+      certs.add(match[0].trim())
+    }
+  })
+  
+  return Array.from(certs).slice(0, 10)
+}
+
+/**
+ * Calculate ATS (Applicant Tracking System) score
+ */
+function calculateATSScore(jdText, resumeText) {
+  const jdNorm = normalize(jdText)
+  const resumeNorm = normalize(resumeText)
+  
+  let score = 0
+  let maxScore = 100
+  
+  // Contact information (10 points)
+  const contactPatterns = [
+    /@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/,  // email
+    /\+?[\d\s()-]{10,}/,  // phone
+    /linkedin\.com/i,  // LinkedIn
+    /github\.com/i  // GitHub
+  ]
+  const contactScore = contactPatterns.filter(p => p.test(resumeText)).length * 2.5
+  score += Math.min(contactScore, 10)
+  
+  // Proper sections (15 points)
+  const sections = ['experience', 'education', 'skills', 'projects']
+  const sectionScore = sections.filter(s => resumeNorm.includes(s)).length * 3.75
+  score += Math.min(sectionScore, 15)
+  
+  // Keywords density (30 points)
+  const jdKeywords = extractNGrams(jdText, 2)
+  const matchedCount = jdKeywords.filter(kw => resumeNorm.includes(normalize(kw))).length
+  const densityScore = (matchedCount / jdKeywords.length) * 30
+  score += Math.min(densityScore, 30)
+  
+  // Readability (20 points)
+  const resumeTokens = tokenize(resumeText)
+  const readabilityScore = resumeTokens.length >= 150 && resumeTokens.length <= 1500 ? 20 : 10
+  score += readabilityScore
+  
+  // Formatting indicators (10 points)
+  const formatScore = [
+    /^[A-Z\s]{3,50}$/m.test(resumeText),  // Header/name in caps
+    /\d{4}\s*-\s*(\d{4}|present)/i.test(resumeText),  // Date ranges
+    /•|·|\*|-/.test(resumeText),  // Bullet points
+    resumeText.split('\n').length > 10  // Multiple lines
+  ].filter(Boolean).length * 2.5
+  score += Math.min(formatScore, 10)
+  
+  // Quantifiable achievements (15 points)
+  const achievements = (resumeText.match(/\d+%|\d+\+|increased|improved|reduced|achieved/gi) || []).length
+  const achievementScore = Math.min(achievements * 3, 15)
+  score += achievementScore
+  
+  return Math.round(score)
 }
 
 /**

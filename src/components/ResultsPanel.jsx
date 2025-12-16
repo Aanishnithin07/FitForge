@@ -16,7 +16,7 @@ export default function ResultsPanel({ result, annotatedJD, annotatedResume, onE
     )
   }
   
-  const { score, label, matchedSkills, missingSkills, matchedKeywords, suggestedTop5, details } = result
+  const { score, label, matchedSkills, missingSkills, matchedKeywords, suggestedTop5, details, atsScore, experience, education, certifications } = result
   
   // Calculate percentage for circular progress
   const circumference = 2 * Math.PI * 54
@@ -118,6 +118,57 @@ export default function ResultsPanel({ result, annotatedJD, annotatedResume, onE
             <div className="metric-bar-fill" style={{width: `${details.lengthScore}%`}}></div>
           </div>
         </div>
+        
+        {atsScore && (
+          <div className="metric-card">
+            <div className="metric-icon">🤖</div>
+            <div className="metric-value">{atsScore}%</div>
+            <div className="metric-label">ATS Score</div>
+            <div className="metric-bar">
+              <div className="metric-bar-fill" style={{width: `${atsScore}%`}}></div>
+            </div>
+          </div>
+        )}
+        
+        {experience?.candidate && (
+          <div className="metric-card">
+            <div className="metric-icon">⏰</div>
+            <div className="metric-value">{experience.candidate}+ yrs</div>
+            <div className="metric-label">Experience</div>
+            <div className="metric-status" style={{
+              color: experience.match === 'Meets Requirements' ? '#22c55e' : 
+                     experience.match === 'Close Match' ? '#f59e0b' : '#ef4444'
+            }}>
+              {experience.match}
+            </div>
+          </div>
+        )}
+        
+        {education?.candidate && (
+          <div className="metric-card">
+            <div className="metric-icon">🎓</div>
+            <div className="metric-value" style={{fontSize: '16px', textTransform: 'capitalize'}}>
+              {education.candidate}
+            </div>
+            <div className="metric-label">Education</div>
+            <div className="metric-status" style={{
+              color: education.match === 'Meets Requirements' ? '#22c55e' : '#f59e0b'
+            }}>
+              {education.match}
+            </div>
+          </div>
+        )}
+        
+        {certifications && certifications.length > 0 && (
+          <div className="metric-card">
+            <div className="metric-icon">📜</div>
+            <div className="metric-value">{certifications.length}</div>
+            <div className="metric-label">Certifications</div>
+            <div className="metric-status" style={{color: '#22c55e'}}>
+              Found
+            </div>
+          </div>
+        )}
       </div>
       
       {/* Tabs Navigation */}
@@ -177,6 +228,19 @@ export default function ResultsPanel({ result, annotatedJD, annotatedResume, onE
                 )}
               </div>
             </div>
+            
+            {certifications && certifications.length > 0 && (
+              <div className="result-section" style={{gridColumn: '1 / -1'}}>
+                <h3>
+                  <span className="section-icon">📜</span> Certifications Found ({certifications.length})
+                </h3>
+                <div className="chips">
+                  {certifications.map((cert, i) => (
+                    <span key={i} className="chip chip-info" style={{background: 'rgba(34, 211, 238, 0.1)', color: '#22d3ee', border: '1px solid rgba(34, 211, 238, 0.3)'}}>{cert}</span>
+                  ))}
+                </div>
+              </div>
+            )}
             
             {suggestedTop5.length > 0 && (
               <div className="suggestions-section">

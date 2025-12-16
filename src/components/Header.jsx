@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 
-export default function Header({ onClearAll }) {
+export default function Header({ onClearAll, onShowHelp }) {
   const [theme, setTheme] = useState('dark')
   
   useEffect(() => {
@@ -45,6 +45,23 @@ export default function Header({ onClearAll }) {
       </div>
       
       <div className="header-actions">
+        <button 
+          className="btn-help" 
+          onClick={onShowHelp}
+          aria-label="Show help"
+          title="How to use FitForge"
+          style={{
+            padding: '8px 16px',
+            fontSize: '14px',
+            background: 'rgba(34, 211, 238, 0.1)',
+            border: '1px solid rgba(34, 211, 238, 0.3)',
+            color: '#22d3ee',
+            marginRight: '12px'
+          }}
+        >
+          ❓ Help
+        </button>
+        
         <button 
           className="btn-clear-all" 
           onClick={handleClearAll}
