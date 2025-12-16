@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import SkillRadarChart from './SkillRadarChart.jsx'
 
 /**
  * ResultsPanel displays the comprehensive analysis results with beautiful visualizations
@@ -21,6 +22,15 @@ export default function ResultsPanel({ result, annotatedJD, annotatedResume, onE
   // Calculate percentage for circular progress
   const circumference = 2 * Math.PI * 54
   const progress = circumference - (score / 100) * circumference
+  
+  // Prepare radar chart data
+  const radarData = [
+    { label: 'Skills', value: details.skillScore },
+    { label: 'Keywords', value: details.keywordScore },
+    { label: 'Context', value: details.contextScore },
+    { label: 'ATS', value: atsScore || 0 },
+    { label: 'Experience', value: experience?.candidate ? Math.min((experience.candidate / 10) * 100, 100) : 0 },
+  ]
   
   return (
     <div className="results-container">
@@ -197,6 +207,34 @@ export default function ResultsPanel({ result, annotatedJD, annotatedResume, onE
       <div className="tab-content">
         {activeTab === 'overview' && (
           <div className="overview-tab">
+            {/* Radar Chart Visualization */}
+            <div style={{
+              background: 'var(--glass-bg)',
+              border: '1px solid var(--glass-border)',
+              borderRadius: '16px',
+              padding: '24px',
+              marginBottom: '24px',
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center'
+            }}>
+              <h3 style={{ marginBottom: '20px', fontSize: '18px', fontWeight: 600 }}>
+                <span style={{ marginRight: '8px' }}>📊</span>
+                Skill Distribution Analysis
+              </h3>
+              <SkillRadarChart data={radarData} size={300} />
+              <p style={{ 
+                marginTop: '16px', 
+                fontSize: '14px', 
+                color: 'var(--text-muted)', 
+                textAlign: 'center',
+                maxWidth: '500px' 
+              }}>
+                Visual representation of candidate strengths across key evaluation dimensions. 
+                Larger coverage indicates better overall fit.
+              </p>
+            </div>
+            
             <div className="results-grid">
               <div className="result-section">
                 <h3>

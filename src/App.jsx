@@ -3,6 +3,7 @@ import Header from './components/Header.jsx'
 import TextInputBlock from './components/TextInputBlock.jsx'
 import ResultsPanel from './components/ResultsPanel.jsx'
 import HelpModal from './components/HelpModal.jsx'
+import ComparisonMode from './components/ComparisonMode.jsx'
 import { analyze, annotateText } from './utils/analyzer.js'
 import { downloadCSV, downloadPDF, downloadLeaderboardCSV } from './utils/export.js'
 import { initCursorEffect, destroyCursorEffect } from './utils/cursorEffect.js'
@@ -10,6 +11,7 @@ import { demoData } from './data/demoData.js'
 
 export default function App() {
   const [showHelp, setShowHelp] = useState(false)
+  const [showComparison, setShowComparison] = useState(false)
   
   // Initialize god-tier cursor effect
   useEffect(() => {
@@ -74,7 +76,13 @@ export default function App() {
     return batchResumes.map(r => {
       const res = analyze({ jdText, resumeText: r.text })
       const topMissing = (res.missingSkills || []).slice(0,3)
-      return { candidateName: r.name || '-', score: res.score, topMissing }
+      return { 
+        name: r.name || '-',
+        candidateName: r.name || '-', 
+        score: res.score, 
+        topMissing,
+        ...res  // Include full analysis for comparison
+      }
     }).sort((a,b)=> b.score - a.score)
   }, [jdText, batchResumes])
 
@@ -121,6 +129,7 @@ export default function App() {
   return (
     <div>
       <HelpModal isOpen={showHelp} onClose={() => setShowHelp(false)} />
+      {showComparison && <ComparisonMode candidates={leaderboard} onClose={() => setShowComparison(false)} />}
       <Header onClearAll={handleClearAll} onShowHelp={() => setShowHelp(true)} />
       
       {/* Hero section with demo button */}
@@ -330,7 +339,30 @@ export default function App() {
                 })}
               </div>
               
-              <div style={{marginTop: 16, display: 'flex', justifyContent: 'center'}}>
+              <div style={{marginTop: 16, display: 'flex', justifyContent: 'center', gap: '12px', flexWrap: 'wrap'}}>
+                <button 
+                  onClick={() => setShowComparison(true)}
+                  disabled={leaderboard.length < 2}
+                  style={{
+                    padding: '12px 24px',
+                    fontSize: '14px',
+                    fontWeight: 600,
+                    background: leaderboard.length < 2 ? 'rgba(148, 163, 184, 0.2)' : 'linear-gradient(135deg, #a855f7 0%, #ec4899 100%)',
+                    border: 'none',
+                    borderRadius: '10px',
+                    color: leaderboard.length < 2 ? 'var(--text-muted)' : 'white',
+                    cursor: leaderboard.length < 2 ? 'not-allowed' : 'pointer',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '8px',
+                    transition: 'transform 0.2s ease',
+                    opacity: leaderboard.length < 2 ? 0.5 : 1
+                  }}
+                >
+                  <span>🔍</span>
+                  Compare Candidates
+                </button>
+                
                 <button 
                   onClick={() => downloadLeaderboardCSV(leaderboard)}
                   style={{
@@ -349,7 +381,7 @@ export default function App() {
                   }}
                 >
                   <span>📥</span>
-                  Export Leaderboard CSV
+                  Export CSV
                 </button>
               </div>
             </div>
