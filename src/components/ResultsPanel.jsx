@@ -10,7 +10,19 @@ export default function ResultsPanel({ result, annotatedJD, annotatedResume, onE
   if (!result) {
     return (
       <div className="results-empty">
-        <div className="empty-icon">📊</div>
+        <div className="empty-icon">
+          <svg width="64" height="64" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="3" y="13" width="4" height="8" rx="1" fill="url(#emptyGradient)"/>
+            <rect x="10" y="8" width="4" height="13" rx="1" fill="url(#emptyGradient)"/>
+            <rect x="17" y="3" width="4" height="18" rx="1" fill="url(#emptyGradient)"/>
+            <defs>
+              <linearGradient id="emptyGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#22d3ee"/>
+                <stop offset="100%" stopColor="#a855f7"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
         <h3>No Analysis Yet</h3>
         <p className="muted">Enter both a Job Description and Resume to see the magic happen</p>
       </div>
@@ -82,10 +94,19 @@ export default function ResultsPanel({ result, annotatedJD, annotatedResume, onE
           </p>
           <div className="action-buttons">
             <button onClick={onExport} className="btn-primary">
-              <span className="btn-icon">📥</span> Export CSV
+              <svg className="btn-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M21 15V19C21 19.5304 20.7893 20.0391 20.4142 20.4142C20.0391 20.7893 19.5304 21 19 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V15" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M7 10L12 15L17 10" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M12 15V3" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+              Export CSV
             </button>
             <button onClick={onExportPDF} className="btn-secondary">
-              <span className="btn-icon">📄</span> Export Report
+              <svg className="btn-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M14 2H6C5.46957 2 4.96086 2.21071 4.58579 2.58579C4.21071 2.96086 4 3.46957 4 4V20C4 20.5304 4.21071 21.0391 4.58579 21.4142C4.96086 21.7893 5.46957 22 6 22H18C18.5304 22 19.0391 21.7893 19.4142 21.4142C19.7893 21.0391 20 20.5304 20 20V8L14 2Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M14 2V8H20" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+              Export Report
             </button>
           </div>
         </div>
@@ -94,7 +115,13 @@ export default function ResultsPanel({ result, annotatedJD, annotatedResume, onE
       {/* Detailed Metrics */}
       <div className="metrics-grid">
         <div className="metric-card">
-          <div className="metric-icon">🎯</div>
+          <div className="metric-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="12" cy="12" r="10" stroke="url(#skillGradient)" strokeWidth="2"/>
+              <circle cx="12" cy="12" r="3" fill="url(#skillGradient)"/>
+              <defs><linearGradient id="skillGradient" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stopColor="#22d3ee"/><stop offset="100%" stopColor="#a855f7"/></linearGradient></defs>
+            </svg>
+          </div>
           <div className="metric-value">{details.skillScore}%</div>
           <div className="metric-label">Skill Match</div>
           <div className="metric-bar">
@@ -103,7 +130,14 @@ export default function ResultsPanel({ result, annotatedJD, annotatedResume, onE
         </div>
         
         <div className="metric-card">
-          <div className="metric-icon">🔑</div>
+          <div className="metric-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="3" y="11" width="18" height="8" rx="2" stroke="url(#keyGradient)" strokeWidth="2"/>
+              <circle cx="7" cy="7" r="2" stroke="url(#keyGradient)" strokeWidth="2"/>
+              <path d="M7 9V11" stroke="url(#keyGradient)" strokeWidth="2"/>
+              <defs><linearGradient id="keyGradient" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stopColor="#22d3ee"/><stop offset="100%" stopColor="#a855f7"/></linearGradient></defs>
+            </svg>
+          </div>
           <div className="metric-value">{details.keywordScore}%</div>
           <div className="metric-label">Keyword Match</div>
           <div className="metric-bar">
@@ -112,7 +146,12 @@ export default function ResultsPanel({ result, annotatedJD, annotatedResume, onE
         </div>
         
         <div className="metric-card">
-          <div className="metric-icon">🧠</div>
+          <div className="metric-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" stroke="url(#contextGradient)" strokeWidth="2" strokeLinejoin="round"/>
+              <defs><linearGradient id="contextGradient" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stopColor="#22d3ee"/><stop offset="100%" stopColor="#a855f7"/></linearGradient></defs>
+            </svg>
+          </div>
           <div className="metric-value">{details.contextScore}%</div>
           <div className="metric-label">Context Match</div>
           <div className="metric-bar">
@@ -121,7 +160,15 @@ export default function ResultsPanel({ result, annotatedJD, annotatedResume, onE
         </div>
         
         <div className="metric-card">
-          <div className="metric-icon">📝</div>
+          <div className="metric-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M14 2H6C5.46957 2 4.96086 2.21071 4.58579 2.58579C4.21071 2.96086 4 3.46957 4 4V20C4 20.5304 4.21071 21.0391 4.58579 21.4142C4.96086 21.7893 5.46957 22 6 22H18C18.5304 22 19.0391 21.7893 19.4142 21.4142C19.7893 21.0391 20 20.5304 20 20V8L14 2Z" stroke="url(#docGradient)" strokeWidth="2"/>
+              <path d="M14 2V8H20" stroke="url(#docGradient)" strokeWidth="2"/>
+              <path d="M8 13H16" stroke="url(#docGradient)" strokeWidth="2" strokeLinecap="round"/>
+              <path d="M8 17H16" stroke="url(#docGradient)" strokeWidth="2" strokeLinecap="round"/>
+              <defs><linearGradient id="docGradient" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stopColor="#22d3ee"/><stop offset="100%" stopColor="#a855f7"/></linearGradient></defs>
+            </svg>
+          </div>
           <div className="metric-value">{details.resumeLength}</div>
           <div className="metric-label">Resume Tokens</div>
           <div className="metric-bar">
@@ -131,7 +178,13 @@ export default function ResultsPanel({ result, annotatedJD, annotatedResume, onE
         
         {atsScore && (
           <div className="metric-card">
-            <div className="metric-icon">🤖</div>
+            <div className="metric-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="4" y="4" width="16" height="16" rx="2" stroke="url(#atsGradient)" strokeWidth="2"/>
+                <path d="M9 12L11 14L15 10" stroke="url(#atsGradient)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                <defs><linearGradient id="atsGradient" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stopColor="#22d3ee"/><stop offset="100%" stopColor="#a855f7"/></linearGradient></defs>
+              </svg>
+            </div>
             <div className="metric-value">{atsScore}%</div>
             <div className="metric-label">ATS Score</div>
             <div className="metric-bar">
@@ -142,7 +195,13 @@ export default function ResultsPanel({ result, annotatedJD, annotatedResume, onE
         
         {experience?.candidate && (
           <div className="metric-card">
-            <div className="metric-icon">⏰</div>
+            <div className="metric-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="3" y="7" width="18" height="13" rx="2" stroke="url(#expGradient)" strokeWidth="2"/>
+                <path d="M8 7V5C8 4.46957 8.21071 3.96086 8.58579 3.58579C8.96086 3.21071 9.46957 3 10 3H14C14.5304 3 15.0391 3.21071 15.4142 3.58579C15.7893 3.96086 16 4.46957 16 5V7" stroke="url(#expGradient)" strokeWidth="2"/>
+                <defs><linearGradient id="expGradient" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stopColor="#22d3ee"/><stop offset="100%" stopColor="#a855f7"/></linearGradient></defs>
+              </svg>
+            </div>
             <div className="metric-value">{experience.candidate}+ yrs</div>
             <div className="metric-label">Experience</div>
             <div className="metric-status" style={{
@@ -156,7 +215,14 @@ export default function ResultsPanel({ result, annotatedJD, annotatedResume, onE
         
         {education?.candidate && (
           <div className="metric-card">
-            <div className="metric-icon">🎓</div>
+            <div className="metric-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 14L21 9L12 4L3 9L12 14Z" stroke="url(#eduGradient)" strokeWidth="2" strokeLinejoin="round"/>
+                <path d="M12 14V22" stroke="url(#eduGradient)" strokeWidth="2"/>
+                <path d="M7 11.5V16L12 18.5L17 16V11.5" stroke="url(#eduGradient)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                <defs><linearGradient id="eduGradient" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stopColor="#22d3ee"/><stop offset="100%" stopColor="#a855f7"/></linearGradient></defs>
+              </svg>
+            </div>
             <div className="metric-value" style={{fontSize: '16px', textTransform: 'capitalize'}}>
               {education.candidate}
             </div>
@@ -171,7 +237,14 @@ export default function ResultsPanel({ result, annotatedJD, annotatedResume, onE
         
         {certifications && certifications.length > 0 && (
           <div className="metric-card">
-            <div className="metric-icon">📜</div>
+            <div className="metric-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M14 2H6C5.46957 2 4.96086 2.21071 4.58579 2.58579C4.21071 2.96086 4 3.46957 4 4V20C4 20.5304 4.21071 21.0391 4.58579 21.4142C4.96086 21.7893 5.46957 22 6 22H18C18.5304 22 19.0391 21.7893 19.4142 21.4142C19.7893 21.0391 20 20.5304 20 20V8L14 2Z" stroke="url(#certGradient)" strokeWidth="2"/>
+                <circle cx="12" cy="15" r="3" stroke="url(#certGradient)" strokeWidth="2"/>
+                <path d="M10.5 19L12 17.5L13.5 19" stroke="url(#certGradient)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                <defs><linearGradient id="certGradient" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stopColor="#22d3ee"/><stop offset="100%" stopColor="#a855f7"/></linearGradient></defs>
+              </svg>
+            </div>
             <div className="metric-value">{certifications.length}</div>
             <div className="metric-label">Certifications</div>
             <div className="metric-status" style={{color: '#22c55e'}}>
@@ -218,8 +291,13 @@ export default function ResultsPanel({ result, annotatedJD, annotatedResume, onE
               flexDirection: 'column',
               alignItems: 'center'
             }}>
-              <h3 style={{ marginBottom: '20px', fontSize: '18px', fontWeight: 600 }}>
-                <span style={{ marginRight: '8px' }}>📊</span>
+              <h3 style={{ marginBottom: '20px', fontSize: '18px', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="3" y="13" width="4" height="8" rx="1" stroke="url(#chartGradient)" strokeWidth="2"/>
+                  <rect x="10" y="8" width="4" height="13" rx="1" stroke="url(#chartGradient)" strokeWidth="2"/>
+                  <rect x="17" y="3" width="4" height="18" rx="1" stroke="url(#chartGradient)" strokeWidth="2"/>
+                  <defs><linearGradient id="chartGradient" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stopColor="#22d3ee"/><stop offset="100%" stopColor="#a855f7"/></linearGradient></defs>
+                </svg>
                 Skill Distribution Analysis
               </h3>
               <SkillRadarChart data={radarData} size={300} />
@@ -238,7 +316,7 @@ export default function ResultsPanel({ result, annotatedJD, annotatedResume, onE
             <div className="results-grid">
               <div className="result-section">
                 <h3>
-                  <span className="section-icon">✅</span> Matched Skills ({matchedSkills.length})
+                  <span className="section-icon" style={{background: 'linear-gradient(135deg, #22c55e, #10b981)', padding: '4px 8px', borderRadius: '6px', fontSize: '12px', fontWeight: '600'}}>✓</span> Matched Skills ({matchedSkills.length})
                 </h3>
                 {matchedSkills.length > 0 ? (
                   <div className="chips">
@@ -253,7 +331,7 @@ export default function ResultsPanel({ result, annotatedJD, annotatedResume, onE
               
               <div className="result-section">
                 <h3>
-                  <span className="section-icon">⚠️</span> Missing Skills ({missingSkills.length})
+                  <span className="section-icon" style={{background: 'linear-gradient(135deg, #f59e0b, #d97706)', padding: '4px 8px', borderRadius: '6px', fontSize: '12px', fontWeight: '600'}}>!</span> Missing Skills ({missingSkills.length})
                 </h3>
                 {missingSkills.length > 0 ? (
                   <div className="chips">
@@ -270,7 +348,7 @@ export default function ResultsPanel({ result, annotatedJD, annotatedResume, onE
             {certifications && certifications.length > 0 && (
               <div className="result-section" style={{gridColumn: '1 / -1'}}>
                 <h3>
-                  <span className="section-icon">📜</span> Certifications Found ({certifications.length})
+                  <span className="section-icon" style={{background: 'linear-gradient(135deg, #22d3ee, #06b6d4)', padding: '4px 8px', borderRadius: '6px', fontSize: '12px', fontWeight: '600'}}>C</span> Certifications Found ({certifications.length})
                 </h3>
                 <div className="chips">
                   {certifications.map((cert, i) => (
@@ -283,7 +361,7 @@ export default function ResultsPanel({ result, annotatedJD, annotatedResume, onE
             {suggestedTop5.length > 0 && (
               <div className="suggestions-section">
                 <h3>
-                  <span className="section-icon">💡</span> Top 5 Recommendations
+                  <span className="section-icon" style={{background: 'linear-gradient(135deg, #a855f7, #9333ea)', padding: '4px 8px', borderRadius: '6px', fontSize: '12px', fontWeight: '600'}}>R</span> Top 5 Recommendations
                 </h3>
                 <ul className="suggestions-list">
                   {suggestedTop5.map((suggestion, i) => (

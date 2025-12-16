@@ -251,11 +251,27 @@ export default function App() {
               <div style={{display: 'flex', flexDirection: 'column', gap: '12px'}}>
                 {leaderboard.map((row, idx) => {
                   const rankColors = {
-                    0: { bg: 'linear-gradient(135deg, rgba(255, 215, 0, 0.2) 0%, rgba(255, 215, 0, 0.05) 100%)', border: 'rgba(255, 215, 0, 0.4)', icon: '🥇' },
-                    1: { bg: 'linear-gradient(135deg, rgba(192, 192, 192, 0.2) 0%, rgba(192, 192, 192, 0.05) 100%)', border: 'rgba(192, 192, 192, 0.4)', icon: '🥈' },
-                    2: { bg: 'linear-gradient(135deg, rgba(205, 127, 50, 0.2) 0%, rgba(205, 127, 50, 0.05) 100%)', border: 'rgba(205, 127, 50, 0.4)', icon: '🥉' }
+                    0: { 
+                      bg: 'linear-gradient(135deg, rgba(255, 215, 0, 0.2) 0%, rgba(255, 215, 0, 0.05) 100%)', 
+                      border: 'rgba(255, 215, 0, 0.4)', 
+                      badge: <div style={{width: '40px', height: '40px', background: 'linear-gradient(135deg, #ffd700, #ffed4e)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 'bold', fontSize: '18px', color: '#000', boxShadow: '0 4px 12px rgba(255, 215, 0, 0.4)'}}>1</div>
+                    },
+                    1: { 
+                      bg: 'linear-gradient(135deg, rgba(192, 192, 192, 0.2) 0%, rgba(192, 192, 192, 0.05) 100%)', 
+                      border: 'rgba(192, 192, 192, 0.4)', 
+                      badge: <div style={{width: '40px', height: '40px', background: 'linear-gradient(135deg, #c0c0c0, #e8e8e8)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 'bold', fontSize: '18px', color: '#000', boxShadow: '0 4px 12px rgba(192, 192, 192, 0.4)'}}>2</div>
+                    },
+                    2: { 
+                      bg: 'linear-gradient(135deg, rgba(205, 127, 50, 0.2) 0%, rgba(205, 127, 50, 0.05) 100%)', 
+                      border: 'rgba(205, 127, 50, 0.4)', 
+                      badge: <div style={{width: '40px', height: '40px', background: 'linear-gradient(135deg, #cd7f32, #e8a55c)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 'bold', fontSize: '18px', color: '#fff', boxShadow: '0 4px 12px rgba(205, 127, 50, 0.4)'}}>3</div>
+                    }
                   }
-                  const rank = rankColors[idx] || { bg: 'var(--glass-bg)', border: 'var(--glass-border)', icon: `${idx + 1}` }
+                  const rank = rankColors[idx] || { 
+                    bg: 'var(--glass-bg)', 
+                    border: 'var(--glass-border)', 
+                    badge: <div style={{width: '40px', height: '40px', background: 'var(--glass-bg)', border: '2px solid var(--glass-border)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 'bold', fontSize: '16px', color: 'var(--text)'}}>{idx + 1}</div>
+                  }
                   
                   return (
                     <div 
@@ -272,13 +288,8 @@ export default function App() {
                         animation: `slideInLeft 0.4s ease ${idx * 0.1}s backwards`
                       }}
                     >
-                      <div style={{
-                        fontSize: '24px',
-                        fontWeight: 'bold',
-                        minWidth: '40px',
-                        textAlign: 'center'
-                      }}>
-                        {rank.icon}
+                      <div>
+                        {rank.badge}
                       </div>
                       
                       <div style={{flex: 1}}>

@@ -99,14 +99,24 @@ export default function HelpModal({ isOpen, onClose }) {
               <li><strong>PDF</strong> - Portable Document Format (text extraction)</li>
               <li><strong>DOCX</strong> - Microsoft Word documents</li>
             </ul>
-            <p style={{ marginTop: '12px', padding: '12px', background: 'rgba(34, 211, 238, 0.1)', borderRadius: '8px', fontSize: '14px' }}>
-              💡 <strong>Tip:</strong> Drag and drop files directly onto the upload areas!
+            <p style={{ marginTop: '12px', padding: '12px', background: 'rgba(34, 211, 238, 0.1)', borderRadius: '8px', fontSize: '14px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="12" cy="12" r="10" stroke="#22d3ee" strokeWidth="2"/>
+                <path d="M12 16V12M12 8H12.01" stroke="#22d3ee" strokeWidth="2" strokeLinecap="round"/>
+              </svg>
+              <strong>Tip:</strong> Drag and drop files directly onto the upload areas!
             </p>
           </section>
           
           <section style={{ marginBottom: '24px' }}>
             <h3 style={{ fontSize: '20px', marginBottom: '12px', display: 'flex', alignItems: 'center', gap: '8px' }}>
-              <span>📊</span> Understanding Scores
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="3" y="13" width="4" height="8" rx="1" fill="url(#helpGradient)"/>
+                <rect x="10" y="8" width="4" height="13" rx="1" fill="url(#helpGradient)"/>
+                <rect x="17" y="3" width="4" height="18" rx="1" fill="url(#helpGradient)"/>
+                <defs><linearGradient id="helpGradient" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stopColor="#22d3ee"/><stop offset="100%" stopColor="#a855f7"/></linearGradient></defs>
+              </svg>
+              Understanding Scores
             </h3>
             <div style={{ display: 'grid', gap: '12px' }}>
               <div style={{ padding: '12px', background: 'rgba(34, 197, 94, 0.1)', borderRadius: '8px' }}>

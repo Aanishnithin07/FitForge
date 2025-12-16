@@ -252,12 +252,14 @@ const DifferenceCard = ({ label, valueA, valueB, winner }) => (
   }}>
     <div style={{ fontSize: '14px', color: 'var(--text-muted)', marginBottom: '8px' }}>{label}</div>
     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-      <span style={{ fontWeight: winner === 'A' ? 700 : 400, color: winner === 'A' ? '#22c55e' : 'var(--text)' }}>
-        {winner === 'A' && '👑 '}{valueA}
+      <span style={{ fontWeight: winner === 'A' ? 700 : 400, color: winner === 'A' ? '#22c55e' : 'var(--text)', display: 'flex', alignItems: 'center', gap: '6px' }}>
+        {winner === 'A' && <span style={{display: 'inline-block', width: '16px', height: '16px', background: 'linear-gradient(135deg, #22c55e, #10b981)', borderRadius: '50%', boxShadow: '0 2px 8px rgba(34, 197, 94, 0.4)'}}></span>}
+        {valueA}
       </span>
       <span style={{ color: 'var(--text-muted)' }}>vs</span>
-      <span style={{ fontWeight: winner === 'B' ? 700 : 400, color: winner === 'B' ? '#22c55e' : 'var(--text)' }}>
-        {winner === 'B' && '👑 '}{valueB}
+      <span style={{ fontWeight: winner === 'B' ? 700 : 400, color: winner === 'B' ? '#22c55e' : 'var(--text)', display: 'flex', alignItems: 'center', gap: '6px' }}>
+        {valueB}
+        {winner === 'B' && <span style={{display: 'inline-block', width: '16px', height: '16px', background: 'linear-gradient(135deg, #22c55e, #10b981)', borderRadius: '50%', boxShadow: '0 2px 8px rgba(34, 197, 94, 0.4)'}}></span>}
       </span>
     </div>
   </div>

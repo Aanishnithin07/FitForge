@@ -112,7 +112,8 @@ textarea.has-file {
 }
 
 .btn-icon {
-  font-size: 18px;
+  width: 20px;
+  height: 20px;
   position: relative;
   z-index: 1;
   animation: iconPulse 2s ease-in-out infinite;
@@ -120,7 +121,7 @@ textarea.has-file {
 
 @keyframes iconPulse {
   0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.2); }
+  50% { transform: scale(1.1); }
 }
 
 /* Dropzone Advanced */

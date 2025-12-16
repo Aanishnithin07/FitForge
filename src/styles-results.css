@@ -217,7 +217,13 @@
 }
 
 .btn-icon {
-  font-size: 18px;
+  width: 20px;
+  height: 20px;
+  transition: transform 0.2s ease;
+}
+
+button:hover .btn-icon {
+  transform: scale(1.1);
 }
 
 /* Metrics Grid */
@@ -391,7 +397,15 @@
 }
 
 .section-icon {
-  font-size: 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.result-section:hover .section-icon,
+.suggestions-section:hover .section-icon {
+  transform: scale(1.1);
 }
 
 .suggestions-section {
