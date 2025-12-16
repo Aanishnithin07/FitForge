@@ -3,3 +3,4 @@ Alex Johnson
 Frontend Engineer with 5+ years building React applications. Strong in JavaScript, TypeScript, HTML, CSS, and testing with Jest. Experience integrating REST APIs, using Git and CI pipelines. Collaborated with designers and product managers to ship accessible, responsive features.
 
 
+

@@ -1,16 +1,52 @@
-import React, { useMemo, useState } from 'react'
+import React, { useMemo, useState, useEffect } from 'react'
 import Header from './components/Header.jsx'
 import TextInputBlock from './components/TextInputBlock.jsx'
 import ResultsPanel from './components/ResultsPanel.jsx'
 import { analyze, annotateText } from './utils/analyzer.js'
 import { downloadCSV, downloadPDF, downloadLeaderboardCSV } from './utils/export.js'
+import { initCursorEffect, destroyCursorEffect } from './utils/cursorEffect.js'
 
 export default function App() {
-  const [jdTitle, setJdTitle] = useState('')
-  const [candidateName, setCandidateName] = useState('')
-  const [jdText, setJdText] = useState('')
-  const [resumeText, setResumeText] = useState('')
-  const [batchResumes, setBatchResumes] = useState([]) // { name, text }
+  // Initialize god-tier cursor effect
+  useEffect(() => {
+    const effect = initCursorEffect();
+    return () => destroyCursorEffect();
+  }, []);
+  
+  // State with localStorage persistence
+  const [jdTitle, setJdTitle] = useState(() => localStorage.getItem('fitforge_jdTitle') || '')
+  const [candidateName, setCandidateName] = useState(() => localStorage.getItem('fitforge_candidateName') || '')
+  const [jdText, setJdText] = useState(() => localStorage.getItem('fitforge_jdText') || '')
+  const [resumeText, setResumeText] = useState(() => localStorage.getItem('fitforge_resumeText') || '')
+  const [batchResumes, setBatchResumes] = useState(() => {
+    try {
+      const saved = localStorage.getItem('fitforge_batchResumes')
+      return saved ? JSON.parse(saved) : []
+    } catch {
+      return []
+    }
+  })
+  
+  // Persist to localStorage
+  useEffect(() => {
+    localStorage.setItem('fitforge_jdTitle', jdTitle)
+  }, [jdTitle])
+  
+  useEffect(() => {
+    localStorage.setItem('fitforge_candidateName', candidateName)
+  }, [candidateName])
+  
+  useEffect(() => {
+    localStorage.setItem('fitforge_jdText', jdText)
+  }, [jdText])
+  
+  useEffect(() => {
+    localStorage.setItem('fitforge_resumeText', resumeText)
+  }, [resumeText])
+  
+  useEffect(() => {
+    localStorage.setItem('fitforge_batchResumes', JSON.stringify(batchResumes))
+  }, [batchResumes])
 
   const result = useMemo(()=>{
     if (!jdText || !resumeText) return null
@@ -62,9 +98,17 @@ export default function App() {
     })
   }
 
+  const handleClearAll = () => {
+    setJdTitle('')
+    setCandidateName('')
+    setJdText('')
+    setResumeText('')
+    setBatchResumes([])
+  }
+
   return (
     <div>
-      <Header />
+      <Header onClearAll={handleClearAll} />
       <main className="container">
         <div className="grid">
           <div className="panel">
@@ -81,29 +125,29 @@ export default function App() {
           <TextInputBlock
             id="jd"
             label="Job Description"
-            placeholder="Paste job description text or upload a .txt file"
+            placeholder="Paste text, or upload TXT, PDF, or DOCX file"
             value={jdText}
             onChange={setJdText}
             onFileLoaded={setJdText}
-            helper="Plain .txt uploads supported."
+            helper="Supports TXT, PDF, and DOCX files. Data persists in browser."
           />
           <TextInputBlock
             id="resume"
             label="Resume"
-            placeholder="Paste resume text or upload a .txt file"
+            placeholder="Paste text, or upload TXT, PDF, or DOCX file"
             value={resumeText}
             onChange={setResumeText}
             onFileLoaded={setResumeText}
-            helper="Plain .txt uploads supported."
+            helper="Supports TXT, PDF, and DOCX files. Data persists in browser."
           />
         </div>
 
         <div className="panel" style={{marginTop:16}}>
-          <label htmlFor="batch">Batch Mode – Upload multiple resumes (.txt)</label>
+          <label htmlFor="batch">Batch Mode – Upload multiple resumes (TXT/PDF/DOCX)</label>
           <TextInputBlock
             id="batch"
-            label="Resumes (.txt)"
-            placeholder="Drop or upload multiple .txt resumes"
+            label="Batch Resumes"
+            placeholder="Drop or upload multiple resume files (TXT/PDF/DOCX)"
             value={''}
             onChange={()=>{}}
             onFileLoaded={(texts)=>{
@@ -115,7 +159,7 @@ export default function App() {
               })
               setBatchResumes(next)
             }}
-            helper="Uploads stay in-browser."
+            helper="Supports TXT, PDF, and DOCX. All data stays in your browser."
             multiple
           />
 

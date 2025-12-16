@@ -1,21 +1,53 @@
 {
   "name": "fitforge",
-  "private": true,
-  "version": "1.0.0",
+  "version": "2.0.0",
+  "description": "AI-Powered HR Role-Fit Analyzer - Instantly analyze resume-job description compatibility",
   "type": "module",
+  "author": {
+    "name": "Aanish Nithin",
+    "email": "aanishnithin@example.com",
+    "url": "https://github.com/Aanishnithin07"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Aanishnithin07/FitForge.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Aanishnithin07/FitForge/issues"
+  },
+  "homepage": "https://fitforge.vercel.app",
+  "keywords": [
+    "hr",
+    "recruitment",
+    "resume-analyzer",
+    "job-matching",
+    "ats",
+    "applicant-tracking",
+    "hiring-tool",
+    "react",
+    "vite",
+    "client-side"
+  ],
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview --port 5173"
+    "preview": "vite preview --port 5173",
+    "lint": "echo 'No linter configured yet'"
   },
   "dependencies": {
+    "file-saver": "^2.0.5",
+    "mammoth": "^1.11.0",
+    "pdfjs-dist": "^5.4.449",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
   "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.4",
     "vite": "^5.4.0"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
   }
 }
-
-
-

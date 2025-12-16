@@ -3,16 +3,118 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="FitForge – HR tool to assess role-fit between a Job Description and a Resume. Client-only, fast, and private." />
-    <title>FitForge – HR Role-Fit Analyzer</title>
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>🛠️</text></svg>">
-    <script type="module" crossorigin src="/assets/index-CI6lLAZQ.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-oPYSef6T.css">
+    
+    <!-- Primary Meta Tags -->
+    <title>FitForge – AI-Powered HR Role-Fit Analyzer | Resume & JD Matching</title>
+    <meta name="title" content="FitForge – AI-Powered HR Role-Fit Analyzer | Resume & JD Matching" />
+    <meta name="description" content="Instantly analyze resume-job description fit with AI. Get detailed match scores, skill gaps, and recommendations. 100% client-side, private, and fast. Perfect for HR professionals and recruiters." />
+    <meta name="keywords" content="resume analyzer, job description matching, HR tool, recruitment software, ATS, applicant tracking, skill matching, candidate screening, hiring tool, resume parser" />
+    <meta name="author" content="FitForge" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://fitforge.vercel.app/" />
+    <meta property="og:title" content="FitForge – AI-Powered HR Role-Fit Analyzer" />
+    <meta property="og:description" content="Instantly analyze resume-job description fit with AI. Get detailed match scores, skill gaps, and recommendations. 100% client-side and private." />
+    <meta property="og:image" content="https://fitforge.vercel.app/og-image.png" />
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://fitforge.vercel.app/" />
+    <meta property="twitter:title" content="FitForge – AI-Powered HR Role-Fit Analyzer" />
+    <meta property="twitter:description" content="Instantly analyze resume-job description fit with AI. Get detailed match scores, skill gaps, and recommendations." />
+    <meta property="twitter:image" content="https://fitforge.vercel.app/og-image.png" />
+    
+    <!-- Favicon -->
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    
+    <!-- PWA Support -->
+    <meta name="theme-color" content="#22d3ee" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="FitForge" />
+    <link rel="manifest" href="/manifest.json" />
+    
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    
+    <!-- Inter Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    
+    <!-- Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "FitForge",
+      "description": "AI-Powered HR Role-Fit Analyzer for matching resumes with job descriptions",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Web Browser",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "featureList": [
+        "Resume Analysis",
+        "Job Description Matching",
+        "Skill Gap Analysis",
+        "Batch Processing",
+        "Export Reports",
+        "Client-side Processing"
+      ]
+    }
+    </script>
+    
+    <style>
+      /* Critical CSS for instant load */
+      #root {
+        min-height: 100vh;
+        background: #0a0e1a;
+      }
+      
+      .loading-screen {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(135deg, #0a0e1a 0%, #1a1f35 50%, #0f1729 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999;
+      }
+      
+      .loading-spinner {
+        width: 60px;
+        height: 60px;
+        border: 4px solid rgba(34, 211, 238, 0.2);
+        border-top-color: #22d3ee;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+      }
+      
+      @keyframes spin {
+        to { transform: rotate(360deg); }
+      }
+    </style>
+    <script type="module" crossorigin src="/assets/index-Cx0lbQ0U.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/react-vendor-B6114-rA.js">
+    <link rel="modulepreload" crossorigin href="/assets/file-utils-DQ6qjg4i.js">
+    <link rel="modulepreload" crossorigin href="/assets/pdf-vendor-BQWzvUHG.js">
+    <link rel="stylesheet" crossorigin href="/assets/index-BPWB71iq.css">
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <div class="loading-screen">
+        <div class="loading-spinner"></div>
+      </div>
+    </div>
   </body>
-  </html>
+</html>
+
 
 
 

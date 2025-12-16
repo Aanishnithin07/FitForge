@@ -3,3 +3,4 @@ Senior Frontend Engineer
 We are seeking a Frontend Engineer skilled in React, JavaScript/TypeScript, HTML, CSS, and testing (Jest, Cypress). Experience with REST/GraphQL APIs, CI/CD, and cloud (AWS/Azure/GCP) is a plus. You will build performant UIs, collaborate with product/design, and maintain high code quality using Agile practices.
 
 
+
