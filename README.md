@@ -32,9 +32,6 @@ FitForge is a **next-generation, client-side HR analytics tool** that revolution
 - **📄 Export Reports**: Generate CSV and formatted text reports
 - **🌐 PWA Ready**: Install as a native app on any platform
 
-## 🌟 Try It Live
-
-**🔗 Live Demo**: [https://fitforge.vercel.app/](https://fitforge.vercel.app/)
 
 Experience FitForge instantly without any installation! Try the live demo to:
 - Upload sample resumes and job descriptions
