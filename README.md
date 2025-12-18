@@ -47,23 +47,6 @@ Explore FitForge's capabilities immediately without installation:
 
 
 
-## ☁️ One-Click Deploy
-
-### Deploy to Vercel
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/Aanishnithin07/FitForge&project-name=hr-fitforge&repository-name=FitForge)
-
-**Production Instance**: [https://hr-fitforge.vercel.app/](https://hr-fitforge.vercel.app/)
-=======
->>>>>>> 2b74b327210022a5c20e82527c58932092277e43
-
-**Configuration:**
-- Build command: `npm run build`
-- Output directory: `dist`
-- Root directory: `hr-fitforge`
-- Framework: Vite
-
-The included `vercel.json` handles automatic configuration.
 
 ## 🎯 Core Features
 
