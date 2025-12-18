@@ -120,7 +120,7 @@ Explore FitForge's capabilities immediately without installation:
 
 
 
-## 🎓 How It Works
+##  How It Works
 
 ### Analysis Algorithm
 
@@ -194,7 +194,7 @@ Edit `src/data/skills.json`:
 - ✅ Edge 90+
 - ✅ Mobile browsers (iOS Safari, Chrome Mobile)
 
-## 🚀 Performance
+## Performance
 
 - **First Load**: ~100KB gzipped
 - **Analysis Speed**: <50ms for typical documents
@@ -202,7 +202,7 @@ Edit `src/data/skills.json`:
 - **Optimized Bundle**: Code splitting enabled
 - **PWA Cacheable**: Offline capable
 
-## 🤝 Contributing
+##  Contributing!
 
 Contributions are what make the open-source community amazing! Any contributions you make are **greatly appreciated**.
 
@@ -234,14 +234,14 @@ Contributions are what make the open-source community amazing! Any contributions
 
 Distributed under the MIT License. See `LICENSE` for more information.
 
-## 👤 Author
+##  Author
 
 **Aanish Nithin**
 
 - GitHub: [@Aanishnithin07](https://github.com/Aanishnithin07)
 - Project Link: [https://github.com/Aanishnithin07/FitForge](https://github.com/Aanishnithin07/FitForge)
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 - React.js Team for the amazing framework
 - Vite for lightning-fast development
