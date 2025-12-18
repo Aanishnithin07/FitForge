@@ -46,17 +46,6 @@ Explore FitForge's capabilities immediately without installation:
 > 💡 **Quick Start**: Sample files are available in the `examples/` directory for immediate testing
 
 
-### Production Build
-
-```bash
-# Build for production
-npm run build
-
-# Preview production build
-npm run preview
-```
-
-The optimized build will be in the `dist/` directory.
 
 ## ☁️ One-Click Deploy
 
