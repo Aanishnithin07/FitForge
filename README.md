@@ -10,7 +10,7 @@
 
 **Transform your hiring process with intelligent resume-job matching**
 
-[Live Demo](https://fitforge.vercel.app/) • [Report Bug](https://github.com/Aanishnithin07/FitForge/issues) • [Request Feature](https://github.com/Aanishnithin07/FitForge/issues)
+[🌐 Live Demo](https://fitforge.vercel.app/) • [📖 Documentation](https://github.com/Aanishnithin07/FitForge#readme) • [🐛 Report Bug](https://github.com/Aanishnithin07/FitForge/issues) • [✨ Request Feature](https://github.com/Aanishnithin07/FitForge/issues)
 
 </div>
 
@@ -31,6 +31,19 @@ FitForge is a **next-generation, client-side HR analytics tool** that revolution
 - **📦 Batch Processing**: Analyze multiple candidates simultaneously
 - **📄 Export Reports**: Generate CSV and formatted text reports
 - **🌐 PWA Ready**: Install as a native app on any platform
+
+## 🌟 Try It Live
+
+**🔗 Live Demo**: [https://fitforge.vercel.app/](https://fitforge.vercel.app/)
+
+Experience FitForge instantly without any installation! Try the live demo to:
+- Upload sample resumes and job descriptions
+- See real-time analysis and scoring
+- Explore the beautiful UI and interactive features
+- Test batch comparison mode
+- Export analysis reports
+
+> 💡 **Tip**: Use the sample files in the `examples/` folder to get started quickly!
 
 ## 🚀 Quick Start
 

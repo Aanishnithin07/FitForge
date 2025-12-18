@@ -1,12 +1,24 @@
 # 🚀 Deployment Guide for FitForge
 
+## 🌐 Live Demo
+
+**Current Deployment**: [https://fitforge.vercel.app/](https://fitforge.vercel.app/)
+
+**Repository**: [https://github.com/Aanishnithin07/FitForge](https://github.com/Aanishnithin07/FitForge)
+
+FitForge is currently deployed on Vercel with automatic CI/CD from the main branch. Every push to the repository triggers a new deployment.
+
+---
+
 ## Quick Deploy Options
 
 ### 1. Vercel (Recommended) ⚡
 
 **One-Click Deploy:**
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/Aanishnithin07/FitForge)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/Aanishnithin07/FitForge&project-name=fitforge&repository-name=FitForge)
+
+**Live Example**: [https://fitforge.vercel.app/](https://fitforge.vercel.app/)
 
 **Manual Deploy:**
 
