@@ -46,11 +46,7 @@ Experience FitForge instantly without any installation! Try the live demo to:
 
 
 
-## ☁️ One-Click Deploy
 
-### Deploy to Vercel
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/Aanishnithin07/FitForge)
 
 **Configuration:**
 - Build command: `npm run build`
