@@ -129,34 +129,7 @@ The included `vercel.json` handles automatic configuration.
 - Extend curated skills in `src/data/skills.json` (simple array of strings).
 - Replace the simple stemmer with a stronger algorithm if desired—kept lightweight for transparency.
 
-## 📁 Project Structure
 
-```
-hr-fitforge/
-├── public/
-│   └── manifest.json          # PWA manifest
-├── src/
-│   ├── main.jsx               # Application entry point
-│   ├── App.jsx                # Main application component
-│   ├── styles.css             # Core styles with theme support
-│   ├── styles-results.css     # Results panel styles
-│   ├── components/
-│   │   ├── Header.jsx         # Header with theme toggle
-│   │   ├── TextInputBlock.jsx # Input component with file upload
-│   │   └── ResultsPanel.jsx   # Results visualization
-│   ├── data/
-│   │   └── skills.json        # 200+ curated skills database
-│   └── utils/
-│       ├── analyzer.js        # Core analysis engine
-│       └── export.js          # Export functionality
-├── examples/
-│   ├── sample-jd.txt          # Example job description
-│   └── sample-resume.txt      # Example resume
-├── index.html                 # Entry HTML with SEO & PWA
-├── package.json               # Dependencies
-├── vercel.json                # Deployment config
-└── README.md                  # This file
-```
 
 ## 🎓 How It Works
 
