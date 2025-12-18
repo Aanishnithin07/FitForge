@@ -44,23 +44,7 @@ Experience FitForge instantly without any installation! Try the live demo to:
 
 ## 🚀 Quick Start
 
-### Prerequisites
 
-- **Node.js** 18+ and npm
-- Modern web browser (Chrome, Firefox, Safari, Edge)
-
-
-### Production Build
-
-```bash
-# Build for production
-npm run build
-
-# Preview production build
-npm run preview
-```
-
-The optimized build will be in the `dist/` directory.
 
 ## ☁️ One-Click Deploy
 
