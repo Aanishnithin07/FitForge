@@ -45,21 +45,6 @@ Explore FitForge's capabilities immediately without installation:
 
 > 💡 **Quick Start**: Sample files are available in the `examples/` directory for immediate testing
 
-## 🚀 Quick Start
-
-```bash
-# Clone the repository
-git clone https://github.com/Aanishnithin07/FitForge.git
-cd FitForge/hr-fitforge
-
-# Install dependencies
-npm install
-
-# Start development server
-npm run dev
-```
-
-Visit `http://localhost:5173` to see the magic happen! ✨
 
 ### Production Build
 
