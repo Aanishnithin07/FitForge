@@ -49,21 +49,6 @@ Experience FitForge instantly without any installation! Try the live demo to:
 - **Node.js** 18+ and npm
 - Modern web browser (Chrome, Firefox, Safari, Edge)
 
-### Installation & Development
-
-```bash
-# Clone the repository
-git clone https://github.com/Aanishnithin07/FitForge.git
-cd FitForge/hr-fitforge
-
-# Install dependencies
-npm install
-
-# Start development server
-npm run dev
-```
-
-Visit `http://localhost:5173` to see the magic happen! ✨
 
 ### Production Build
 
