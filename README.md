@@ -8,17 +8,17 @@
 [![Vite](https://img.shields.io/badge/Vite-5.4-646CFF?style=for-the-badge&logo=vite)](https://vitejs.dev/)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=for-the-badge)](http://makeapullrequest.com)
 
-**Transform your hiring process with intelligent resume-job matching**
+**Enterprise-Grade Resume Analysis Platform**
 
-[🌐 Live Demo](https://fitforge.vercel.app/) • [📖 Documentation](https://github.com/Aanishnithin07/FitForge#readme) • [🐛 Report Bug](https://github.com/Aanishnithin07/FitForge/issues) • [✨ Request Feature](https://github.com/Aanishnithin07/FitForge/issues)
+[🌐 Live Demo](https://hr-fitforge.vercel.app/) • [📖 Documentation](https://github.com/Aanishnithin07/FitForge#readme) • [🐛 Report Issues](https://github.com/Aanishnithin07/FitForge/issues) • [💼 Request Feature](https://github.com/Aanishnithin07/FitForge/issues)
 
 </div>
 
 ---
 
-## ✨ What Makes FitForge Special?
+## ✨ Overview
 
-FitForge is a **next-generation, client-side HR analytics tool** that revolutionizes how you assess candidate fit. Built with cutting-edge web technologies and beautiful UI/UX, it provides instant, intelligent analysis of resume-job description matches—all while keeping your data 100% private in your browser.
+FitForge is an **enterprise-grade, client-side HR analytics platform** designed to streamline candidate assessment workflows. Built with modern web technologies and an intuitive interface, it delivers comprehensive, real-time analysis of resume-job description compatibility while maintaining complete data privacy through browser-based processing.
 
 ### 🎯 Key Highlights
 
@@ -32,18 +32,18 @@ FitForge is a **next-generation, client-side HR analytics tool** that revolution
 - **📄 Export Reports**: Generate CSV and formatted text reports
 - **🌐 PWA Ready**: Install as a native app on any platform
 
-## 🌟 Try It Live
+## 🌟 Live Demo
 
-**🔗 Live Demo**: [https://fitforge.vercel.app/](https://fitforge.vercel.app/)
+**🔗 Production Application**: [https://hr-fitforge.vercel.app/](https://hr-fitforge.vercel.app/)
 
-Experience FitForge instantly without any installation! Try the live demo to:
-- Upload sample resumes and job descriptions
-- See real-time analysis and scoring
-- Explore the beautiful UI and interactive features
-- Test batch comparison mode
-- Export analysis reports
+Explore FitForge's capabilities immediately without installation:
+- Upload and analyze resumes against job descriptions
+- View real-time analysis with detailed scoring metrics
+- Test batch comparison functionality
+- Generate and export comprehensive reports
+- Experience the responsive, production-ready interface
 
-> 💡 **Tip**: Use the sample files in the `examples/` folder to get started quickly!
+> 💡 **Quick Start**: Sample files are available in the `examples/` directory for immediate testing
 
 ## 🚀 Quick Start
 
@@ -84,7 +84,9 @@ The optimized build will be in the `dist/` directory.
 
 ### Deploy to Vercel
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/Aanishnithin07/FitForge)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/Aanishnithin07/FitForge&project-name=hr-fitforge&repository-name=FitForge)
+
+**Production Instance**: [https://hr-fitforge.vercel.app/](https://hr-fitforge.vercel.app/)
 
 **Configuration:**
 - Build command: `npm run build`

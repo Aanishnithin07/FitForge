@@ -1,12 +1,13 @@
 # 🚀 Deployment Guide for FitForge
 
-## 🌐 Live Demo
+## 🌐 Production Deployment
 
-**Current Deployment**: [https://fitforge.vercel.app/](https://fitforge.vercel.app/)
+**Live Application**: [https://hr-fitforge.vercel.app/](https://hr-fitforge.vercel.app/)
 
-**Repository**: [https://github.com/Aanishnithin07/FitForge](https://github.com/Aanishnithin07/FitForge)
+**Source Repository**: [https://github.com/Aanishnithin07/FitForge](https://github.com/Aanishnithin07/FitForge)
 
-FitForge is currently deployed on Vercel with automatic CI/CD from the main branch. Every push to the repository triggers a new deployment.
+**Deployment Infrastructure**: 
+FitForge is deployed on Vercel with continuous integration and deployment (CI/CD) configured for the main branch. All commits merged to main automatically trigger production deployments with zero downtime.
 
 ---
 
@@ -16,9 +17,9 @@ FitForge is currently deployed on Vercel with automatic CI/CD from the main bran
 
 **One-Click Deploy:**
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/Aanishnithin07/FitForge&project-name=fitforge&repository-name=FitForge)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/Aanishnithin07/FitForge&project-name=hr-fitforge&repository-name=FitForge)
 
-**Live Example**: [https://fitforge.vercel.app/](https://fitforge.vercel.app/)
+**Production Reference**: [https://hr-fitforge.vercel.app/](https://hr-fitforge.vercel.app/)
 
 **Manual Deploy:**
 
