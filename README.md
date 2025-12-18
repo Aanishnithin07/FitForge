@@ -195,19 +195,7 @@ Edit `src/data/skills.json`:
 ]
 ```
 
-### Theme Customization
 
-Edit CSS variables in `src/styles.css`:
-
-```css
-:root {
-  --accent: #22d3ee;      /* Primary accent color */
-  --purple: #a855f7;      /* Secondary accent */
-  --good: #22c55e;        /* Success color */
-  --danger: #ef4444;      /* Error color */
-  ...
-}
-```
 
 ## 📱 Browser Support
 
