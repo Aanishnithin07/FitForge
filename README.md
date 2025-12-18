@@ -43,9 +43,6 @@ Explore FitForge's capabilities immediately without installation:
 - Generate and export comprehensive reports
 - Experience the responsive, production-ready interface
 
-> 💡 **Quick Start**: Sample files are available in the `examples/` directory for immediate testing
-
-
 
 
 ## 🎯 Core Features
