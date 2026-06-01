@@ -159,30 +159,6 @@ Explore FitForge's capabilities immediately without installation:
    - Missing skills identification
    - Top 5 improvement suggestions
 
-## 🔧 Customization
-
-### Adjusting Scoring Weights
-
-Edit `src/utils/analyzer.js`:
-
-```javascript
-const SKILL_WEIGHT = 0.5      // Skills importance
-const KEYWORD_WEIGHT = 0.25   // Keywords importance
-const CONTEXTUAL_WEIGHT = 0.15 // Context importance
-const LENGTH_WEIGHT = 0.1     // Resume length importance
-```
-
-### Adding Custom Skills
-
-Edit `src/data/skills.json`:
-
-```json
-[
-  "your-custom-skill",
-  "another-skill",
-  ...
-]
-```
 
 
 
@@ -253,8 +229,6 @@ Distributed under the MIT License. See `LICENSE` for more information.
 <div align="center">
 
 **⭐ Star this repo if it helped you!**
-
-Made with ❤️ for HR professionals worldwide
 
 </div>
 
